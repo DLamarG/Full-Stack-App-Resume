@@ -9,4 +9,5 @@ venv/
 *.env
 rap_env/
 *.vscode
-.gitignore
+.gitignore\
+nnn
