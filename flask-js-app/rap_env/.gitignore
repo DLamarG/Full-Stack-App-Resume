@@ -1,2 +1,10 @@
 # Created by venv; see https://docs.python.org/3/library/venv.html
-
+__pycache__/
+*.py[cod]
+*$py.class
+var/
+wheels/
+.python-version
+.venv
+venv
+.env
