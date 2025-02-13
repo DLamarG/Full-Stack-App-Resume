@@ -5,8 +5,8 @@ var/
 wheels/
 .python-version
 .venv
-venv
-.env
-rap_env
+venv/
+*.env
+rap_env/
 *.vscode
 .gitignore
