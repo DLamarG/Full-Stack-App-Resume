@@ -6,6 +6,6 @@ var/
 wheels/
 .python-version
 .venv
-venv
+venv/
 .env
-rap_env
+rap_env/
