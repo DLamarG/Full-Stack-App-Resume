@@ -10,3 +10,4 @@ venv
 .env
 rap_env
 *.vscode
+.gitignore
