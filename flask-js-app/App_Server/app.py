@@ -51,7 +51,7 @@ def initialize_db():
     conn.close()
 
 # Route to update and fetch visit count
-@app.route('/visit', methods=['POST'])
+@app.route('/visit', methods=['GET'])
 def visit():
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -72,22 +72,3 @@ if __name__ == '__main__':
 
 
 
-
-
-
-
-
-
-
-# Initial Configuration
-
-# from flask import Flask, jsonify
-
-# app = Flask(__name__)
-
-# @app.route('/visit', methods=['GET'])
-# def get_data():
-#     return jsonify({"message": "Hello from Flask API!"})
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
