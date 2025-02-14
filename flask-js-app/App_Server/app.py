@@ -51,7 +51,7 @@ def initialize_db():
     conn.close()
 
 # Route to update and fetch visit count
-@app.route('/visit', methods=['GET'])
+@app.route('/visit', methods=['POST'])
 def visit():
     conn = get_db_connection()
     cursor = conn.cursor()

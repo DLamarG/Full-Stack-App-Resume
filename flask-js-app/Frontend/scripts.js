@@ -4,14 +4,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Backend API Fetch
     async function triggerBackendAPI() {
         try {
-          await fetch("http://127.0.0.1:5500/visit");
+            await fetch("http://127.0.0.1:5500/visit", {
+                method: "POST", // Change GET to POST
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ message: "Hello Backend" }) // Add a request body if required
+            });
         } catch (error) {
-          console.error("Error triggering backend API:", error);
+            console.error("Error triggering backend API:", error);
         }
-      }
-      
-      // Call the function
-      triggerBackendAPI();
+    }
+    
+    // Call the function
+    triggerBackendAPI();
+    
       
 
     
