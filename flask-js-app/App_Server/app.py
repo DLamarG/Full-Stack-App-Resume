@@ -13,10 +13,10 @@ app = Flask(__name__)
 CORS(app)
 
 # PostgreSQL Connection Details
-DB_HOST = os.getenv("POSTGRES_HOST", 'db')
-DB_NAME = os.getenv("POSTGRES_NAME", 'fullstack_db')
-DB_USER = os.getenv("POSTGRES_USER", 'user')
-DB_PASSWORD = os.getenv("POSTGRES_PASSWORD", 'password')
+DB_HOST = os.getenv("DB_HOST")
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
 
 # Function to connect to the database
 def get_db_connection():
