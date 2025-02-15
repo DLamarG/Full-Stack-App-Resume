@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
@@ -8,8 +8,11 @@ from botocore.exceptions import NoCredentialsError, ClientError
 # Load environment variables
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 CORS(app)
+
+
+#CORS(app, resources={r"/visit": {"origins": "http://3.149.245.21:8000"}})
 
 # AWS DynamoDB Configuration
 AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
@@ -58,6 +61,10 @@ def visit():
         return jsonify({"error": "AWS credentials not found"}), 500
     except ClientError as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route('/')
+def serve_frontend():
+    return send_from_directory('static', 'index.html')
 
 if __name__ == '__main__':
     initialize_db()
