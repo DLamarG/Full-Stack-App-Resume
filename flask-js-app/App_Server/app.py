@@ -8,7 +8,7 @@ from botocore.exceptions import NoCredentialsError, ClientError
 # Load environment variables
 load_dotenv()
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__, static_folder='../Frontend')
 CORS(app)
 
 
