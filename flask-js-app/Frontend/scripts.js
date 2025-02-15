@@ -2,13 +2,13 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // Backend API Fetch
-      fetch('/visit', {
+    fetch('http://localhost:5500/visit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({})
-       })
+    })
     
 
 

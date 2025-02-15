@@ -12,7 +12,7 @@ app = Flask(__name__, static_folder='static')
 CORS(app)
 
 
-#CORS(app, resources={r"/visit": {"origins": "http://3.149.245.21:8000"}})
+CORS(app, resources={r"/visit": {"origins": "http://localhost"}})
 
 # AWS DynamoDB Configuration
 AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
