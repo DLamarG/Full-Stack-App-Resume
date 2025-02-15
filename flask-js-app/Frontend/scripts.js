@@ -2,16 +2,12 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // Backend API Fetch
-    async function triggerBackendAPI() {
-        try {
-          await fetch("http://127.0.0.1:5500/visit");
-        } catch (error) {
-          console.error("Error triggering backend API:", error);
-        }
-      }
-      
-      // Call the function
-      triggerBackendAPI();
+    fetch('http://127.0.0.1:5500/visit', {
+        method: 'POST',
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
       
 
     
