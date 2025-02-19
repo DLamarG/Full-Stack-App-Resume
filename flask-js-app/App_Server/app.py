@@ -8,11 +8,11 @@ from botocore.exceptions import NoCredentialsError, ClientError
 # Load environment variables
 load_dotenv()
 
-app = Flask(__name__, static_folder='../Frontend')
+app = Flask(__name__)
 CORS(app)
 
 
-CORS(app, resources={r"/visit": {"origins": "http://localhost"}})
+CORS(app, resources={r"/visit": {"origins": "*"}})
 
 # AWS DynamoDB Configuration
 AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
@@ -62,9 +62,9 @@ def visit():
     except ClientError as e:
         return jsonify({"error": str(e)}), 500
 
-@app.route('/')
-def serve_frontend():
-    return send_from_directory('static', 'index.html')
+# @app.route('/')
+# def serve_frontend():
+#     return send_from_directory('static', 'index.html')
 
 if __name__ == '__main__':
     initialize_db()
