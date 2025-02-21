@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
@@ -42,12 +42,13 @@ def initialize_db():
         else:
             print("Visit counter already exists.")
     except ClientError as e:
-        return jsonify({"error": str(e)}), 500
+        print(f"error: {str(e)}")
 
 # Route to update and fetch visit count
 @app.route('/visit', methods=['POST', 'GET'])
 def visit():
     try:
+        # Update the visit count in DynamoDB
         response = table.update_item(
             Key={"id": "counter"},
             UpdateExpression="SET visits = visits + :inc",
@@ -55,33 +56,11 @@ def visit():
             ReturnValues="UPDATED_NEW"
         )
         new_count = response["Attributes"]["visits"]
-
-        # Create a response and add CORS headers
-        res = make_response(jsonify({"message": "Visit recorded", "total_visits": new_count}))
-        res.headers.add("Access-Control-Allow-Origin", "*")  # Allow all origins (change in prod)
-        res.headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        res.headers.add("Access-Control-Allow-Headers", "Content-Type, Authorization")
-        return res
-
+        return jsonify({"message": "Visit recorded", "total_visits": new_count})
     except NoCredentialsError:
         return jsonify({"error": "AWS credentials not found"}), 500
     except ClientError as e:
         return jsonify({"error": str(e)}), 500
-# def visit():
-#     try:
-#         # Update the visit count in DynamoDB
-#         response = table.update_item(
-#             Key={"id": "counter"},
-#             UpdateExpression="SET visits = visits + :inc",
-#             ExpressionAttributeValues={":inc": 1},
-#             ReturnValues="UPDATED_NEW"
-#         )
-#         new_count = response["Attributes"]["visits"]
-#         return jsonify({"message": "Visit recorded", "total_visits": new_count})
-#     except NoCredentialsError:
-#         return jsonify({"error": "AWS credentials not found"}), 500
-#     except ClientError as e:
-#         return jsonify({"error": str(e)}), 500
 
 # @app.route('/')
 # def serve_frontend():
