@@ -9,10 +9,9 @@ from botocore.exceptions import NoCredentialsError, ClientError
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
 
 
-CORS(app, resources={r"/visit": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # AWS DynamoDB Configuration
 AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
