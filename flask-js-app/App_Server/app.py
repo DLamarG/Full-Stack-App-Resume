@@ -70,7 +70,7 @@ def visit():
 
 if __name__ == '__main__':
     initialize_db()
-    app.run(host='0.0.0.0', port=5500, debug=True)
+    app.run(host='0.0.0.0', port=5500)
 
 
 
