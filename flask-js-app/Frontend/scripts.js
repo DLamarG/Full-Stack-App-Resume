@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
 
-    fetch('http://localhost:5500/visit', {
+    fetch('http://0.0.0.0:5500/visit', {
         type: 'POST', // Use POST instead of GET
         contentType: 'application/json',
         // body: JSON.stringify({})
