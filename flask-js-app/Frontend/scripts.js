@@ -10,12 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
 
-    fetch('http://0.0.0.0:5500/visit', {
-        method: 'POST',
+    fetch('http://localhost:5500/visit', {
+        type: 'POST', // Use POST instead of GET
+        contentType: 'application/json',
+        // body: JSON.stringify({})
     })
     .then(response => response.json())
     .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
+    .catch(err => console.error('Fetch error:', err));
+    
       
 
     
