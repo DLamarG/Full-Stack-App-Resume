@@ -11,7 +11,7 @@ load_dotenv()
 app = Flask(__name__)
 
 
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=False)
 
 
 # CORS(app, resources={r"/*": {"origins": "*"}})
