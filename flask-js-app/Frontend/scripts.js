@@ -2,20 +2,20 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // Backend API Fetch
-    fetch('http://0.0.0.0:5500/visit', {
-        type: 'POST',
-        contentType: 'application/json',
-        body: JSON.stringify({})
-    })
+    // fetch('http://0.0.0.0:5500/visit', {
+    //     type: 'POST',
+    //     contentType: 'application/json',
+    //     body: JSON.stringify({})
+    // })
     
 
 
-    // fetch('http://127.0.0.1:5500/visit', {
-    //     method: 'POST',
-    // })
-    // .then(response => response.json())
-    // .then(data => console.log(data))
-    // .catch(error => console.error('Error:', error));
+    fetch('http://0.0.0.0:5500/visit', {
+        method: 'POST',
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
       
 
     
