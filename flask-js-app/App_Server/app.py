@@ -11,7 +11,7 @@ load_dotenv()
 app = Flask(__name__)
 
 
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=False)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 # CORS(app, resources={r"/*": {"origins": "*"}})
@@ -70,6 +70,7 @@ def visit():
 
 if __name__ == '__main__':
     initialize_db()
+
     app.run(host='0.0.0.0', port=5500)
 
 
