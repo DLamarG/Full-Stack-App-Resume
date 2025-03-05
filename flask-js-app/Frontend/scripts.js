@@ -3,10 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Backend API Fetch
     fetch('http://0.0.0.0:5500/visit', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        type: 'POST',
+        contentType: 'application/json',
         body: JSON.stringify({})
     })
     
