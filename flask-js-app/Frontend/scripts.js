@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Backend API Fetch
     fetch('http://0.0.0.0:5500/visit', {
         type: 'POST',
+        contentType: 'application/json'
     })
     
 
