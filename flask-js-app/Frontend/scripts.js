@@ -2,21 +2,33 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // Backend API Fetch
-    fetch('http://127.0.0.1:5500/visit', {
-        type: 'POST',
-        contentType: 'application/json'
-    })
+    // fetch('http://127.0.0.1:5500/visit', {
+    //     type: 'POST',
+    //     contentType: 'application/json'
+    // })
     
 
 
-    // fetch('http://0.0.0.0:5500/visit', {
-    //     type: 'POST', // Use POST instead of GET
-    //     contentType: 'application/json',
-    //     // body: JSON.stringify({})
-    // })
-    // .then(response => response.json())
-    // .then(data => console.log(data))
-    // .catch(err => console.error('Fetch error:', err));
+    // Backend API Fetch
+    fetch('http://127.0.0.1:5500/visit', {
+        method: 'POST', // Correct HTTP method
+        headers: {
+            'Content-Type': 'application/json' // Correct headers
+        },
+        body: JSON.stringify({}) // Include an empty body
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the JSON response
+    })
+    .then(data => {
+        console.log('Response:', data); // Handle the response data
+    })
+    .catch(error => {
+        console.error('Fetch error:', error); // Handle errors
+    });
     
       
 
